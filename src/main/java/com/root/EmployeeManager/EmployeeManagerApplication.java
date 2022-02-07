@@ -17,11 +17,11 @@ public class EmployeeManagerApplication {
 		SpringApplication.run(EmployeeManagerApplication.class, args);
 	}
 
-@Bean
+ @Bean
 	public CorsFilter corsFilter() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
 		corsConfiguration.setAllowCredentials(true);
-		corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200/"));
+		corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
 		corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access_Control_Allow_Origin", "Content_Type",
 				"Accept", "Authorization", "Origin", "Accept", "X_Request_With", "Access_Control_Request_Method",
 				"Access_Control_Request_Headers"));
@@ -29,7 +29,7 @@ public class EmployeeManagerApplication {
 				"Access_Control_Allow_Origin", "Access_Control_Allow_Credentials"));
 		corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 		UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource= new UrlBasedCorsConfigurationSource();
-		urlBasedCorsConfigurationSource.registerCorsConfiguration("/**",corsConfiguration);
+	    urlBasedCorsConfigurationSource.registerCorsConfiguration("/**",corsConfiguration);
 		return new CorsFilter(urlBasedCorsConfigurationSource);
 	}
 
